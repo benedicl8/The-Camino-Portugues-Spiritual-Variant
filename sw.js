@@ -1,4 +1,4 @@
-const CACHE='the-portugues-way-v24.2f-shell';
+const CACHE='the-portugues-way-v24.2g-shell';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./routes/day-01-tui-o-porrino.gpx','./routes/day-02-o-porrino-redondela.gpx','./routes/day-03-redondela-pontevedra.gpx','./routes/day-04-pontevedra-armenteira.gpx','./routes/day-05-armenteira-vilanova.gpx','./routes/day-06-pontecesures-o-milladoiro.gpx','./routes/day-07-o-milladoiro-santiago.gpx'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>(k.startsWith('buen-camino-')||k.startsWith('the-portugues-way-'))&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
